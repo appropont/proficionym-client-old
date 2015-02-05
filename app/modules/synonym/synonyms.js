@@ -1,4 +1,4 @@
-define(['angular', 'apiKeys', 'services.jsonip'], function (angular, apiKeys) {
+define(['angular', 'apiKeys'], function (angular, apiKeys) {
     'use strict';
     angular.module('services.synonyms', [])
 	    .config(function ($httpProvider) {
