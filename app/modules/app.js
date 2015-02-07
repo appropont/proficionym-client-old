@@ -1,4 +1,4 @@
-define(['angular', 'config/config', 'angular-route', 'about/about', 'contact/contact', 'navbar/navbar', 'ngstart/ngstart', 'templates'],
+define(['angular', 'config/config', 'angular-route', 'about/about', 'contact/contact', 'navbar/navbar', 'proficionym/proficionym', 'templates', 'synonyms/synonyms'],
 	function (angular, config) {
 	"use strict";
 

@@ -1,14 +1,27 @@
 define(function () {
 	"use strict";
 
-	var AboutController = function($scope, $translate) {
+	var ProficionymController = function($scope, synonyms) {
 
-		$translate("about.sampletext").then(function(translation) {
-			$scope.about = translation;
-		});
+		$scope.search = function(searchTerm) {
+
+			//validate search term
+
+			//get synonyms
+			synonyms.getSynonyms(searchTerm)
+				.then(function(data) {
+					console.log('synonyms result: ', data);
+				}, function(error) {
+					console.log('synonyms error: ', error);
+				});
+
+		};
+
+
+
 	};
 
-	AboutController.$inject = ["$scope", "$translate"];
+	ProficionymController.$inject = ["$scope", "synonyms"];
 
-	return AboutController;
+	return ProficionymController;
 });

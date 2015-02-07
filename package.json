@@ -34,7 +34,8 @@
     "grunt-appcache": "0.1.x",
     "grunt-push-release": "0.1.9",
     "license-checker": "0.0.x",
-    "load-grunt-tasks": "1.0.0"
+    "load-grunt-tasks": "1.0.0",
+    "karma-phantomjs-launcher": "~0.1.4"
   },
   "engines": {
     "node": "0.10.x"
