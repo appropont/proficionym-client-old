@@ -1,18 +1,16 @@
 define(function () {
 	"use strict";
 
-	var ProficionymController = function($scope, synonyms) {
+	var ProficionymController = function($scope, Api) {
 
 		$scope.search = function(searchTerm) {
-
-			//validate search term
-
-			//get synonyms
-			synonyms.getSynonyms(searchTerm)
-				.then(function(data) {
-					console.log('synonyms result: ', data);
-				}, function(error) {
-					console.log('synonyms error: ', error);
+			console.log('search clicked');
+			Api.queryApi(searchTerm)
+				.then(function(result) {
+					console.log('success: ', result);
+				})
+				.catch(function(error) {
+					console.log('error: ', error)
 				});
 
 		};
@@ -21,7 +19,7 @@ define(function () {
 
 	};
 
-	ProficionymController.$inject = ["$scope", "synonyms"];
+	ProficionymController.$inject = ["$scope", "services.api"];
 
 	return ProficionymController;
 });

@@ -5,7 +5,7 @@ define(["angular", "config/configuration"], function(angular, configuration) {
     	"ngRoute", 
     	"about", 
     	"proficionym", 
-    	"services.synonyms",
+        "services.api",
     	"contact", 
     	"navbar", 
     	"pascalprecht.translate", 
