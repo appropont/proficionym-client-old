@@ -9,6 +9,7 @@
 			'translate-static-loader': '../../bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files',
 			'translate-handler-log': '../../bower_components/angular-translate-handler-log/angular-translate-handler-log',
 			'react': '../../bower_components/ngReact/ngReact',
+			'async': '../../bower_components/async/lib/async'
 		},
 		shim: {
 			'angular': { deps: [], exports: 'angular' },

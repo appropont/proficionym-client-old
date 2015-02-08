@@ -14,7 +14,8 @@
     "requirejs": "2.1.x",
     "angular-translate": "2.4.x",
     "angular-translate-loader-static-files": "2.4.x",
-    "angular-xml": "~2.0.1"
+    "angular-xml": "~2.0.1",
+    "async": "https://github.com/caolan/async.git#~0.9.2"
   },
   "devDependencies": {
     "angular-mocks": "1.3.x",

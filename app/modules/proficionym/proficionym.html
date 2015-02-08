@@ -3,6 +3,9 @@
 	<h1>Proficionym</h1>
 
 	<input class="form-control" type="text" placeholder="Enter a search term" ng-model="searchTerm">
-	<button class="btn btn-success btn-lg btn-block" ng-click="search(searchTerm)">Search</button>
+	<input class="form-control" type="text" placeholder="Prefix" ng-model="prefix">
+	<input class="form-control" type="text" placeholder="Suffix" ng-model="suffix">
+	<input class="form-control" type="text" placeholder="com" ng-model="tld" value="com">
+	<button class="btn btn-success btn-lg btn-block" ng-click="search(searchTerm, prefix, suffix, tld)">Search</button>
 
 </div>
