@@ -39,7 +39,11 @@ define(['angular', 'async'], function (angular, async) {
 				var deferred = $q.defer();
 
 				var	maxActiveLookups = 6,
-					domainResults = [];
+					domainResults = {
+						available : [],
+						registered : [],
+						error : []
+					};
 
 
 				var lookup = function(domain, callback) {
@@ -47,7 +51,7 @@ define(['angular', 'async'], function (angular, async) {
 						.then(function(result) {
 							//console.log('batchWhois: whoisLookup: result');
 							//console.log(result);
-							domainResults.push({domain: domain, result: result});
+							domainResults[result.status].push(result);
 							callback();
 						})
 						.catch(function(error) {

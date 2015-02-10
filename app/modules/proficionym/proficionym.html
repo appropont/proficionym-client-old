@@ -1,8 +1,8 @@
 <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
 	
 	<div id="header" class="clearfix">
-		<img class="col-xs-2 col-sm-1" src="images/logo.png" />
-		<h1 class="col-xs-10 col-sm-11">Proficionym</h1>
+		<img class="col-xs-1 col-sm-1" src="images/logo.png" />
+		<h1 class="col-xs-11 col-sm-11">Proficionym</h1>
 	</div>
 
 	<div id="getting-started">
@@ -16,7 +16,7 @@
 			<div class="examples">
 				<p class="colonized">The domains are assembled like this:</p>
 				<div class="indented">prefix + synonym + suffix + tld</div>
-				<p class="colonized">So as an example:</p>
+				<p class="colonized">So, as an example:</p>
 				<div class="indented">
 					If you were to enter <b>guard</b> as your word,<br>
 					with a prefix of <b>smart</b>, <br>
@@ -38,7 +38,14 @@
 		<button class="btn btn-success btn-lg btn-block" ng-click="search(searchTerm, prefix, suffix, tld.tld)">Search</button>
 	</div>
 	<div>
-		<hello fname="person.fname" lname="person.lname" count="person.count"/>
+		<react-component name="Status" props="status"/>
+		<!--<status 
+			status="status.status" 
+			totalCount="status.totalCount" 
+			processedCount="status.processedCount" 
+			availableCount="status.availableCount"
+			registeredCount="status.registeredCount"
+			errorCount="status.errorCount" />-->
 	</div>
 
 </div>

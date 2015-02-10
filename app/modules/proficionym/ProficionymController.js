@@ -26,12 +26,25 @@ define(function () {
 		];
 		$scope.tld = $scope.tlds[0];
 
-		$scope.person = {fname: 'Chris', lname: 'Griffing', count: 0};
+		$scope.domains = {
+			available : [],
+			registered : [],
+			error : []
+		};
+		$scope.status = {
+			status : 'Idle',
+			processedCount : '0',
+			totalCount : 0,
+			availableCount : 0,
+			registeredCount : 0,
+			errorCount : 0
+		};
 
 		$scope.search = function(searchTerm, prefix, suffix, tld) {
 			console.log('search clicked');
 
 			$scope.showIntro = false;
+			$scope.status.status = 'Processing';
 
 			var options = {
 				tld : 'com',
@@ -42,25 +55,29 @@ define(function () {
 			if(prefix && prefix !== '') {options.prefix = prefix;}
 			if(suffix && suffix !== '') {options.suffix = suffix;}
 
-			var processedCount = 0;
-
 			Api.getSynonyms(searchTerm)
 				.then(function(result) {
 					//console.log('success: ', result);
 					var domains = createDomains(result, options);
+					$scope.status.totalCount = domains.length;
 
 					return Api.batchWhois(domains, function() {
-						processedCount++;
-						$scope.person.count++;
-						console.log('processed: ', processedCount);
+						$scope.status.processedCount++;
 					});
 				})
 				.then(function(results) {
 					console.log('batchWhois results');
 					console.log(results);
+					$scope.status.availableCount = results.available.length;
+					$scope.status.registeredCount = results.registered.length;
+					$scope.status.errorCount = results.error.length;
+					$scope.domains = results;
 				})
 				.catch(function(error) {
 					console.log('error: ', error);
+				})
+				.finally(function() {
+					$scope.status.status = 'Idle';
 				});
 		};
 
