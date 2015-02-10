@@ -52,7 +52,7 @@ define(['angular', 'async'], function (angular, async) {
 						})
 						.catch(function(error) {
 							//console.log('batchWhois: whoisLookup: error');
-							//console.log(error);
+							console.log(error);
 							callback();
 						});
 				};

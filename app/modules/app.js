@@ -7,7 +7,10 @@ define([
 		'navbar/navbar', 
 		'proficionym/proficionym', 
 		'templates', 
-		'api/api'
+		'api/api',
+		'status/status',
+		'react',
+		'ngReact'
 	],
 	function (angular, config) {
 	"use strict";

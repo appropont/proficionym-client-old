@@ -1,11 +1,44 @@
 <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
 	
-	<h1>Proficionym</h1>
+	<div id="header" class="clearfix">
+		<img class="col-xs-2 col-sm-1" src="images/logo.png" />
+		<h1 class="col-xs-10 col-sm-11">Proficionym</h1>
+	</div>
 
-	<input class="form-control" type="text" placeholder="Enter a search term" ng-model="searchTerm">
-	<input class="form-control" type="text" placeholder="Prefix" ng-model="prefix">
-	<input class="form-control" type="text" placeholder="Suffix" ng-model="suffix">
-	<input class="form-control" type="text" placeholder="com" ng-model="tld" value="com">
-	<button class="btn btn-success btn-lg btn-block" ng-click="search(searchTerm, prefix, suffix, tld)">Search</button>
+	<div id="getting-started">
+		<h2>
+			Getting Started
+			<button class="btn btn-default show-hide-intro" ng-show="showIntro" ng-click="toggleShowIntro()">Hide</button>
+			<button class="btn btn-default show-hide-intro" ng-hide="showIntro" ng-click="toggleShowIntro()">Show</button>
+		</h2>
+		<div ng-show="showIntro">
+			<p class="concept">The concept is fairly simple. It takes in a word and fetches synonyms for that word. Then, it makes domain names out of the synonyms and checks to see if they are registered.</p>
+			<div class="examples">
+				<p class="colonized">The domains are assembled like this:</p>
+				<div class="indented">prefix + synonym + suffix + tld</div>
+				<p class="colonized">So as an example:</p>
+				<div class="indented">
+					If you were to enter <b>guard</b> as your word,<br>
+					with a prefix of <b>smart</b>, <br>
+					and a tld of <b>.com</b>,<br>
+					one of the domains to be checked would be<br>
+					<b>smartprotect.com</b>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="search-form">
+		<input class="form-control" type="text" placeholder="Enter a word" ng-model="searchTerm">
+		<div id="domain-extras" class="clearfix">
+			<div class="col-xs-4"><input class="form-control" type="text" placeholder="Prefix (optional)" ng-model="prefix"></div>
+			<div class="col-xs-4"><input class="form-control" type="text" placeholder="Suffix (optional)" ng-model="suffix"></div>
+			<div class="col-xs-4"><select class="form-control" ng-model="tld" ng-options="tld.label for tld in tlds"></select></div>
+		</div>
+		<button class="btn btn-success btn-lg btn-block" ng-click="search(searchTerm, prefix, suffix, tld.tld)">Search</button>
+	</div>
+	<div>
+		<hello fname="person.fname" lname="person.lname" count="person.count"/>
+	</div>
 
 </div>

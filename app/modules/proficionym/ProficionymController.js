@@ -12,12 +12,26 @@ define(function () {
 
 	var ProficionymController = function($scope, Api) {
 
-		$scope.hasSearched = false;
+		$scope.showIntro = true;
+
+		$scope.toggleShowIntro = function() {
+			$scope.showIntro = !$scope.showIntro;
+		};
+
+		$scope.tlds = [
+			{label: '.com', tld: 'com'},
+			{label: '.net', tld: 'net'},
+			{label: '.org', tld: 'org'},
+			{label: '.io' , tld: 'io' }
+		];
+		$scope.tld = $scope.tlds[0];
+
+		$scope.person = {fname: 'Chris', lname: 'Griffing', count: 0};
 
 		$scope.search = function(searchTerm, prefix, suffix, tld) {
 			console.log('search clicked');
 
-			$scope.hasSearched = true;
+			$scope.showIntro = false;
 
 			var options = {
 				tld : 'com',
@@ -37,6 +51,7 @@ define(function () {
 
 					return Api.batchWhois(domains, function() {
 						processedCount++;
+						$scope.person.count++;
 						console.log('processed: ', processedCount);
 					});
 				})

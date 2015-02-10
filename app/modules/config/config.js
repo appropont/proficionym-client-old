@@ -10,7 +10,8 @@ define(["angular", "config/configuration"], function(angular, configuration) {
     	"navbar", 
     	"pascalprecht.translate", 
     	"config", 
-    	"templates"
+    	"templates",
+        "react"
     ];
         
     var config = angular.module('config', []);
