@@ -21,15 +21,15 @@ define(['angular', 'react'], function (angular, React) {
 			var detailsChildren = [];
 
 			var coreStatus = React.DOM.div(
-				{id: 'basic-status', className: 'col-xs-6'},
+				{id: 'basic-status', className: 'col-xs-6 detail'},
 				'Status: ' + this.props.status
 			);
 
 			detailsChildren.push(coreStatus);
 
 			var extraStatus = React.DOM.div(
-				{id: 'extra-status', className: 'col-xs-6'},
-				'[ ' + this.props.processedCount + ' of ' + this.props.totalCount + ' ]'
+				{id: 'extra-status', className: 'col-xs-6 detail'},
+				this.props.processedCount + ' of ' + this.props.totalCount
 			);
 
 			if(this.props.status === 'Processing') {
