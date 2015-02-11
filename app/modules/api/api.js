@@ -51,6 +51,7 @@ define(['angular', 'async'], function (angular, async) {
 						.then(function(result) {
 							//console.log('batchWhois: whoisLookup: result');
 							//console.log(result);
+							result.key = domain;
 							domainResults[result.status].push(result);
 							callback();
 						})

@@ -1,7 +1,5 @@
 define(['angular', 'react'], function (angular, React) {
 	"use strict";
-	console.log('React: ');
-	console.log(React);
 	var status = angular.module('status', ['react']);
 
 	var Status = React.createClass({

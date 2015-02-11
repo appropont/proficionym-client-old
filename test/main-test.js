@@ -21,12 +21,16 @@
 		paths:{
 			'angular':'/base/bower_components/angular/angular',
 			'angular-route':'/base/bower_components/angular-route/angular-route',
-			'mocks':'/base/bower_components/angular-mocks/angular-mocks'
+			'mocks':'/base/bower_components/angular-mocks/angular-mocks',
+			'react':'/base/bower_components/react/react',
+			'ngReact':'/base/bower_components/ngReact/ngReact',
+			'async':'/base/bower_components/async/lib/async'
 		},
 		shim:{
 			'angular':{ deps:[], exports:'angular' },
 			'angular-route':{ deps:['angular'], exports:'angular-route' },
-			'mocks':{ deps:['angular'], exports:'mocks' }
+			'mocks':{ deps:['angular'], exports:'mocks' },
+			'react':{ deps:[], exports:'React' }
 		}
 	}, allTestFiles, function () {
 		window.__karma__.start();

@@ -38,7 +38,9 @@
 		<button class="btn btn-success btn-lg btn-block" ng-click="search(searchTerm, prefix, suffix, tld.tld)">Search</button>
 	</div>
 
-	<react-component name="Status" props="status"/>
+	<react-component name="Status" props="status"></react-component>
+
+	<react-component name="Results" props="domains" ng-if="hasSearched"></react-component>
 
 
 

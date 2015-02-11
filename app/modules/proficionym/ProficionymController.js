@@ -10,9 +10,22 @@ define(function () {
 		return domains;
 	};
 
+	var defaultStatus = function() {
+		return {
+			status : 'Idle',
+			processedCount : 0,
+			totalCount : 0,
+			availableCount : 0,
+			registeredCount : 0,
+			errorCount : 0
+		};
+	};
+
 	var ProficionymController = function($scope, Api) {
 
 		$scope.showIntro = true;
+
+		$scope.hasSearched = false;
 
 		$scope.toggleShowIntro = function() {
 			$scope.showIntro = !$scope.showIntro;
@@ -31,20 +44,16 @@ define(function () {
 			registered : [],
 			error : []
 		};
-		$scope.status = {
-			status : 'Idle',
-			processedCount : '0',
-			totalCount : 0,
-			availableCount : 0,
-			registeredCount : 0,
-			errorCount : 0
-		};
+		$scope.temp = {temp: 'Temporary', key: 'temp'};
+		$scope.status = defaultStatus();
 
 		$scope.search = function(searchTerm, prefix, suffix, tld) {
 			console.log('search clicked');
 
 			$scope.showIntro = false;
-			$scope.status.status = 'Processing';
+			var resetStatus = defaultStatus();
+			resetStatus.status = 'Processing';
+			$scope.status = resetStatus;
 
 			var options = {
 				tld : 'com',
@@ -72,6 +81,7 @@ define(function () {
 					$scope.status.registeredCount = results.registered.length;
 					$scope.status.errorCount = results.error.length;
 					$scope.domains = results;
+					$scope.hasSearched = true;
 				})
 				.catch(function(error) {
 					console.log('error: ', error);

@@ -9,6 +9,7 @@ define([
 		'templates', 
 		'api/api',
 		'status/status',
+		'results/results',
 		'react',
 		'ngReact'
 	],
