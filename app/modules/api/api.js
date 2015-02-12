@@ -2,9 +2,9 @@ define(['angular', 'async'], function (angular, async) {
 	"use strict";
 
 	angular.module("services.api", [])
-		.factory("Api", ['$http', '$q', function ($http, $q) {
+		.factory("Api", ['$http', '$q', '$location', function ($http, $q, $location) {
 
-			var apiRoot = "deb7local.com:3000";
+			var apiRoot = 'api.' + $location.host();
 
 			var getSynonyms = function(word, options) {
 				var deferred = $q.defer();
