@@ -26,12 +26,12 @@ define(['angular', 'react'], function (angular, React) {
 				} else {
 					message = 'No available domains found.';
 				}
-				elements.push(React.DOM.p({}, message));
+				elements.push(React.DOM.p({className: 'results-error'}, message));
 			} else {
 				//I seem to be missing the point of the array/key message that react is throwing
 				var domains = {};
 				this.props.available.forEach(function(domain) {
-					domains[domain.domain] = React.DOM.li({key: domain.domain, className: "list-group-item domain"}, domain.domain);
+					domains[domain.domain] = React.DOM.li({key: domain.domain, className: 'list-group-item domain'}, domain.domain);
 				});
 
 				var domainList = React.DOM.ul({id: 'domain-list', className: 'list-group'}, 

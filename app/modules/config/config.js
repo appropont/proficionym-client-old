@@ -2,12 +2,9 @@ define(["angular", "config/configuration"], function(angular, configuration) {
    "use strict";
 
     var standardAngularModules = [
-    	"ngRoute", 
-    	"about", 
+    	"ngRoute",
     	"proficionym", 
         "services.api",
-    	"contact", 
-    	"navbar", 
     	"pascalprecht.translate", 
     	"config", 
     	"templates",

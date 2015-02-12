@@ -85,6 +85,7 @@ define(function () {
 				})
 				.catch(function(error) {
 					console.log('error: ', error);
+					alert("The API is unreachable. This is could be caused by the server being down or you have lost your internet connection.");
 				})
 				.finally(function() {
 					$scope.status.status = 'Idle';

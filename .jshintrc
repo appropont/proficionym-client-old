@@ -19,6 +19,7 @@
 	"globals": {
 		"angular": true,
 		"console": true,
+		"alert": true,
 		"define": true,
 		"require": true,
 		"document": true,
