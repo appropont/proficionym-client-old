@@ -335,7 +335,7 @@ module.exports = function (grunt) {
 	});
 
 	grunt.registerTask('default', ['jshint']);
-	grunt.registerTask('web', ['less:development', 'autoprefixer:development', 'connect:server'/*, 'karma:development'*/, 'watch']);
+	grunt.registerTask('web', ['less:development', 'autoprefixer:development', 'connect:server', 'karma:development', 'watch']);
 
 	//call grunt.loadNpmTasks for all dependencies in package.json which names start with "grunt-"
   require('load-grunt-tasks')(grunt);

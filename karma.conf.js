@@ -16,7 +16,7 @@ module.exports = function (config) {
 
 		frameworks: ['jasmine', 'requirejs'],
 
-		browsers: ['PhantomJS'],
+		browsers: [],
 
 		plugins: [
 			'karma-requirejs',

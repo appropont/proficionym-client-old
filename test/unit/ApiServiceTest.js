@@ -1,15 +1,15 @@
 define(function() {
 	"use strict";
-	describe("the synonymsService", function () {
-		var synonymsService;
+	describe("the API service", function () {
+		var apiService;
 
 		beforeEach(function () {
 			//load contact module,    see http://docs.angularjs.org/api/angular.mock.inject
-			module("services.synonyms");
+			module("services.api");
 
 			//properly instantiate the service
-			inject(["synonyms", function (_synonymsService) {
-				synonymsService = _synonymsService;
+			inject(["Api", function (_apiService) {
+				apiService = _apiService;
 			}]);
 
 			console.log = jasmine.createSpy('console');
@@ -17,7 +17,7 @@ define(function() {
 
 
 		it("should log messages to console", function () {
-			synonymsService.getSynonyms('test')
+			apiService.getSynonyms('test')
 				.then(function(data) {
 					expect(console.log).toHaveBeenCalled();
 				}, function(error) {
