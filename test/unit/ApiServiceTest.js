@@ -1,30 +1,65 @@
 define(function() {
 	"use strict";
-	describe("the API service", function () {
+	describe("The API service", function () {
+
+		//overwriting default temporarily
+		jasmine.DEFAULT_TIMEOUT_INTERVAL = 20000;
+
 		var apiService;
 
-		beforeEach(function () {
-			//load contact module,    see http://docs.angularjs.org/api/angular.mock.inject
+		beforeEach(function (done) {
+			//load api module,    see http://docs.angularjs.org/api/angular.mock.inject
 			module("services.api");
 
 			//properly instantiate the service
-			inject(["Api", function (_apiService) {
+			angular.mock.inject(["Api", function (_apiService) {
 				apiService = _apiService;
 			}]);
 
-			console.log = jasmine.createSpy('console');
+			console.log('apiService: ', apiService);
+
+			done();
+
+			//console.log = jasmine.createSpy('console');
 		});
 
+		it("should test basic values", function (done) {
+			console.log('test2')
+			var val = true;
+			expect(val).toBe(true);
+			done();
+		});
 
-		it("should log messages to console", function () {
-			apiService.getSynonyms('test')
-				.then(function(data) {
-					expect(console.log).toHaveBeenCalled();
+		it("should result in error when given non-existent word", function (done) {
+			console.log('testing');
+			/*apiService.getSynonyms('test')
+				.then(function(result) {
+					console.log('then');
+					expect(result).not.toBeUndefined();
+					expect(result.error).not.toBeUndefined();
+					done();
+				})
+				.catch(function(error) {
+					console.log('catch');
+					expect(error).toBeUndefined();
+					done();
+				})
+				.finally(function() {
+					console.log('finally');
+					expect(val).toBe(true);
+					done();
+				});*/
+			apiService.getSynonyms('testtest')
+				.then(function(result) {
+					expect(result).not.toBeUndefined();
+					expect(result.error).not.toBeUndefined();
+					done();
 				}, function(error) {
-					//nothing here i hope
-					expect(console.log).toHaveBeenCalled();
+					expect(error).toBeUndefined();
+					done();
 				});
 		});
+
 	});
 
 });

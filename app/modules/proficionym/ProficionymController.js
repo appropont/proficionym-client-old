@@ -67,7 +67,7 @@ define(function () {
 			Api.getSynonyms(searchTerm)
 				.then(function(result) {
 					//console.log('success: ', result);
-					var domains = createDomains(result, options);
+					var domains = createDomains(result.synonyms, options);
 					$scope.status.totalCount = domains.length;
 
 					return Api.batchWhois(domains, function() {
@@ -75,8 +75,8 @@ define(function () {
 					});
 				})
 				.then(function(results) {
-					console.log('batchWhois results');
-					console.log(results);
+					//console.log('batchWhois results');
+					//console.log(results);
 					$scope.status.availableCount = results.available.length;
 					$scope.status.registeredCount = results.registered.length;
 					$scope.status.errorCount = results.error.length;
@@ -85,7 +85,9 @@ define(function () {
 				})
 				.catch(function(error) {
 					console.log('error: ', error);
-					alert("The API is unreachable. This is could be caused by the server being down or you have lost your internet connection.");
+					alert(error.description);
+					resetStatus.status = "Error!"; 
+					$scope.status = resetStatus;
 				})
 				.finally(function() {
 					$scope.status.status = 'Idle';
