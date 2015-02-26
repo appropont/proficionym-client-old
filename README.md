@@ -4,13 +4,13 @@ An app that would be named better if it had existed when it was created.
 
 ##What does it do?
 
-The app takes a word input by the user and fetches a list of synonyms from a thesaurus api. Aftet aht, it checks those synonyms as available domain names.
+The app takes a word input by the user and fetches a list of synonyms from a thesaurus api. After that, it checks those synonyms as available domain names.
 
 ##License
 
 The MIT License (MIT)
 
-Copyright (c) 2013 Marco Rinck
+Copyright (c) 2015 Appropont
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
