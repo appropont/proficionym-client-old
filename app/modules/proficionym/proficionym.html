@@ -24,10 +24,10 @@
 	</div>
 
 	<div id="search-form">
-		<input class="form-control" type="text" placeholder="Enter a word" ng-model="searchTerm">
+		<input class="form-control" type="text" placeholder="Enter a word" ng-model="searchTerm" autocomplete="off">
 		<div id="domain-extras" class="clearfix">
-			<div class="col-xs-4"><input class="form-control" type="text" placeholder="Prefix (optional)" ng-model="prefix"></div>
-			<div class="col-xs-4"><input class="form-control" type="text" placeholder="Suffix (optional)" ng-model="suffix"></div>
+			<div class="col-xs-4"><input class="form-control" type="text" placeholder="Prefix (optional)" ng-model="prefix" autocomplete="off"></div>
+			<div class="col-xs-4"><input class="form-control" type="text" placeholder="Suffix (optional)" ng-model="suffix" autocomplete="off"></div>
 			<div class="col-xs-4"><select class="form-control" ng-model="tld" ng-options="tld.label for tld in tlds"></select></div>
 		</div>
 		<button class="btn btn-success btn-lg btn-block" ng-click="search(searchTerm, prefix, suffix, tld.tld)">Search</button>
